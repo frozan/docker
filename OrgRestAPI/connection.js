@@ -12,12 +12,4 @@ const connection = mysql.createPool({
     database: 'pipedrive',
 });
 
-// connection.connect((error) => {
-//     if(error) {
-//         console.log("Error", error);
-//     } else {
-//         console.log("Connection successful");
-//     }
-// });
-
 module.exports = connection;

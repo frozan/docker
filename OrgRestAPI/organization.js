@@ -31,7 +31,6 @@ module.exports = class {
                     else {
                         resolve(false);
                     }
-                    // res.json(rows);
                 }
             });
         });
@@ -133,8 +132,6 @@ module.exports = class {
                     dbconnection.query(insertRelationQuery, [parentId, id], (error) => {
                         if(error) {
                             console.log('Error in query', error);
-                        } else {
-                           console.log('relation created')
                         }
                     });
                 }
