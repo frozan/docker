@@ -41,7 +41,7 @@ module.exports = class {
             
             let queryPromise = new Promise((resolve) => {
                 let query = `SET @id = ?;
-                    SELECT o.org_name,
+                    SELECT DISTINCT o.org_name,
                     CASE
                         WHEN r.child_id = @id THEN "parent"
                         WHEN r.parent_id = @id THEN "daughter"
@@ -55,7 +55,6 @@ module.exports = class {
                             SELECT parent_id FROM relations WHERE child_id = @id
                         ))
                     WHERE o.org_id IS NOT NULL AND o.org_id != @id
-                    GROUP BY o.org_id
                     ORDER BY o.org_name ASC
                     LIMIT ?, ?`;
                 dbconnection.query(query, [id, offset, perPage], (error, rows) => {

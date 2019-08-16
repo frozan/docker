@@ -7,9 +7,9 @@ var mysql = require('mysql');
 const connection = mysql.createPool({
     host: '192.168.99.100',
     user: 'root',
-    password: '',
-    insecureAuth: true,
+    password: 'password',
     database: 'pipedrive',
+    multipleStatements: true
 });
 
 module.exports = connection;
